@@ -10,6 +10,11 @@ const taskSchema=new mongoose.Schema({
     },
     deadline:{
         type:Date
+    },
+    userid:{
+        type:Object,
+        required:true,
+        unique:true
     }
 })
 

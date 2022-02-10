@@ -25,6 +25,10 @@
   </head>
   <body>
     <% const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];%>
+    <div class="main">
+      <div>
+        <span class="userid"><strong> Hello <%= user.name %></strong></span>
+      </div>
     <div class="container">
       <div class="heading"><h1>TODO App</h1></div>
       <hr />
@@ -110,6 +114,10 @@
         </div>
         <% } %>
       </div>
+    </div>
+    <div class="logout">
+      <a href="/signout">Logout</a>
+    </div>
     </div>
   </body>
 </html>

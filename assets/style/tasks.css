@@ -1,10 +1,23 @@
 body{
     background-color: #808080;
 }
+.main{
+    display: flex;
+    justify-content: space-between;
+}
+.userid{
+    color:white;
+    font-style: italic;
+    font-size:200%;
+}
+.logout a{
+    color:white;
+    margin-right: 1rem;
+    font-size: 150%;
+}
 
 .container{
     width:70%;
-    margin:auto;
     background-color: #FFFFFF;
     overflow: auto;
     margin-bottom: 10%;
