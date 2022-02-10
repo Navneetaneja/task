@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style/tasks.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>TODO APP</title>
+    <script>
+      function getAllTasks(){
+        var all=[];
+        const alltasks=document.querySelectorAll("input[type='checkbox']:checked");
+        for(i of alltasks)
+        {
+          all.push(i.value);
+        }
+        // console.log(all);
+        return all;
+      }
+    </script>
+  </head>
+  <body>
+    <% const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];%>
+    <div class="container">
+      <div class="heading"><h1>TODO App</h1></div>
+      <hr />
+      <form method="post" action="/addTask">
+        <div class="description">
+          <span><strong>DESCRIPTION <span style="color:red">*</span> </strong></span><br />
+          <textarea
+            rows="2"
+            cols="50"
+            name="event"
+            placeholder="What do you need to do ?"
+            required
+          ></textarea>
+        </div>
+        <hr />
+        <div class="others">
+          <div class="category">
+            <span><strong>CATEGORY</strong></span><br />
+            <select name="task_category">
+              <option selected>Choose a category</option>
+              <option>Personal</option>
+              <option>Work</option>
+              <option>School</option>
+              <option>Cleaning</option>
+              <option>Other</option>
+            </select>
+            <br /><br />
+          </div>
+          <div class="date">
+            <span><strong>DUE DATE</strong></span><br />
+            <input name="deadline" type="date" />
+          </div>
+        </div>
+        <hr style="margin-top: -1px" />
+        <div class="buttons">
+          <button type="submit" class="add"><i class="fa fa-plus"></i> &nbsp; ADD TASK</button>&nbsp;
+          <a href="/deleteTasks/?arr=" onclick="location.href=this.href+getAllTasks();return false;"><button type="button" class="del"><i class="fa fa-trash"></i> &nbsp; DELETE TASKS</button></a>
+        </div>
+      </form>
+      <div class="tasks">
+        <% for(task of tasks){ %>
+        <hr />
+        <div class="outer">
+          <div class="text">
+            <input type="checkbox" value="<%= task._id %>"/>
+            <span class="task"><strong><%= task.event %></strong></span><br /><br />
+            <% if(task.deadline!==null){ %>
+            <span class="taskdate"><i class="fa fa-calendar"></i>&nbsp; <%=
+              months[task.deadline.getMonth()] %> <%= task.deadline.getDate()
+              %>, <%= task.deadline.getFullYear() %></span>
+            <% } else { %>
+            <span class="taskdate"><i class="fa fa-calendar"></i>&nbsp; NO DEADLINE</span>
+            <% } %>
+          </div>
+
+          <% if(task.task_category!=='Choose a category'){ %>
+
+          <% if(task.task_category==='Personal'){ %>
+          <div style="background-color:dodgerblue" class="taskcategory">
+            <%= task.task_category %>
+          </div>
+          <% } else if(task.task_category==='Work'){ %>
+          <div style="background-color:purple" class="taskcategory">
+            <%= task.task_category %>
+          </div>
+          <% } else if(task.task_category==='School'){ %>
+          <div style="background-color:orange" class="taskcategory">
+            <%= task.task_category %>
+          </div>
+          <% } else if(task.task_category==='Cleaning'){ %>
+          <div style="background-color:green" class="taskcategory">
+            <%= task.task_category %>
+          </div>
+          <% } else if(task.task_category==='Other'){ %>
+          <div style="background-color:orangered" class="taskcategory">
+            <%= task.task_category %>
+          </div>
+          <% } %>
+
+          <% } %>
+
+
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

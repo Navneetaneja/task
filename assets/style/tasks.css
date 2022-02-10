@@ -1,0 +1,104 @@
+body{
+    background-color: #808080;
+}
+
+.container{
+    width:70%;
+    margin:auto;
+    background-color: #FFFFFF;
+    overflow: auto;
+    margin-bottom: 10%;
+}
+.heading{
+    text-align: center;
+    color:#666666;
+}
+.description{
+    padding-left:5%;
+}
+.description textarea{
+    border:none;
+    resize: none;
+    width:80%;
+}
+textarea:focus,input:focus,select:focus,button:focus{
+    outline: none;
+}
+textarea{
+    font-size: 120%;
+    margin-bottom: -0.5rem;
+}
+
+.others{
+    display: flex;
+    width:100%;
+    margin-top:-8px;
+}
+.category
+{
+    padding-left:5%;
+    padding-top:1%;
+    width:45%;
+    border-right: 2px solid gray;
+}
+.category select{
+    border:none;
+    width:90%;
+}
+.date{
+    padding-left:5%;
+    padding-top:1%;
+}
+.date input{
+    border: none;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding-top:15px;
+    padding-bottom: 15px;
+}
+.buttons button{
+    padding: 15px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add{
+    background-color: black;
+    color: white;
+}
+.del{
+    background-color: red;
+    color: white;
+}
+.tasks{
+    width:90%;
+    margin:auto;
+}
+.outer{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-top:1rem;
+}
+
+.taskdate{
+    padding-left:2rem;
+}
+.text{
+    width:70%;
+}
+.task{
+    padding-left: 0.5rem;
+    display: inline-block;
+    width:70%;
+    word-wrap: break-word;
+}
+.taskcategory{
+    padding: 10px;
+    color:white;
+    margin-right:1rem;
+    border-radius: 5px;
+}
