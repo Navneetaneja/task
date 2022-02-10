@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIGN IN</title>
-</head>
-<body>
-    <form action="/userLogin" method="post">
-        Email: <input name="email" type="email" required/>
-        password: <input name="password" type="password" required/>
-        <button>Submit</button>
-    </form>
-</body>
+    <link href="/style/signup.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div align="center" class="container">
+      <h1>SIGN IN</h1>
+      <form action="/userLogin" method="post">
+        <table>
+          <tr>
+            <td>Email :</td>
+            <td><input name="email" type="email" placeholder="Email" required /><br /></td>
+          </tr>
+          <tr>
+            <td>password :</td>
+            <td><input name="password" type="password" placeholder="Password" required /><br /></td>
+          </tr>
+        </table>
+        <button>LOG IN</button><br/>
+        <span style="color:purple">Don't Have An Account ?</span><br/>
+        <a href="/signup"><button type="button">SIGN UP</button></a><br/>
+      </form>
+    </div>
+  </body>
 </html>

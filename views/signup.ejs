@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIGN UP</title>
-</head>
-<body>
-    <form action="/createUser" method="post">
-        Name: <input name="name" type="text" required/>
-        Email: <input name="email" type="email" required/>
-        password: <input name="password" type="password" required/>
-        confirm password:<input name="confirm_password" type="password" required/>
-        <button>Submit</button>
-    </form>
-</body>
+    <link href="/style/signup.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div align="center" class="container">
+      <h1>SIGN UP</h1>
+      <form action="/createUser" method="post">
+        <table>
+          <tr>
+            <td>Name :</td>
+            <td><input name="name" type="text" placeholder="Name" required /><br /></td>
+          </tr>
+          <tr>
+            <td>Email :</td>
+            <td><input name="email" type="email" placeholder="Email" required /><br /></td>
+          </tr>
+          <tr>
+            <td>password :</td>
+            <td><input name="password" type="password" placeholder="Password" required /><br /></td>
+          </tr>
+          <tr>
+            <td>Confirm Password :</td>
+            <td>
+              <input name="confirm_password" type="password" placeholder="Confirm Password" required /><br />
+            </td>
+          </tr>
+        </table>
+        <button>Create Account</button><br/>
+        <span style="color:purple">Already Have An Account ?</span><br/>
+        <a href="/signin"><button type="button">LOG IN</button></a><br/>
+      </form>
+      <p><%= error %></p>
+    </div>
+  </body>
 </html>

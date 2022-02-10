@@ -31,6 +31,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticationUser);
 
+var error="";
+
 app.get('/', passport.checkAuthentication, function (req, res) {
     Tasks.find({userid:res.locals.user._id}, function (err, tasks) {
         if (err) {
@@ -45,6 +47,7 @@ app.get('/signin', function (req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
     }
+    error="";
     return res.render('signin');
 })
 
@@ -52,11 +55,12 @@ app.get('/signup', function (req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
     }
-    return res.render('signup');
+    return res.render('signup',{error:error});
 })
 
 app.get('/signout',function(req,res){
     req.logOut();
+    error="";
     return res.redirect('/signin');
 })
 
@@ -64,6 +68,7 @@ app.post('/createUser', function (req, res) {
 
     if (req.body.password !== req.body.confirm_password) {
         console.log("password not matched");
+        error="Passwords Not Matched";
         return res.redirect('back');
     }
 
@@ -79,10 +84,14 @@ app.post('/createUser', function (req, res) {
                     return;
                 }
                 else
+                {
+                    error="";
                     return res.redirect('/signin');
+                }
             });
         }
         else {
+            error="User Already Exists";
             return res.redirect('/signup');
         }
     })
@@ -90,6 +99,7 @@ app.post('/createUser', function (req, res) {
 })
 
 app.post("/userLogin", passport.authenticate('local', { failureRedirect: "/signin" }), function (req, res) {
+    error="";
     return res.redirect('/');
 })
 
