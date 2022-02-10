@@ -142,7 +142,7 @@ app.get('/deleteTasks', function (req, res) {
 
 
 
-app.listen(PORT, function (err) {
+app.listen(process.env.PORT || PORT, function (err) {
     if (err) {
         console.log(err);
         return;
