@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/TaskDB");
+mongoose.connect("mongodb+srv://user:navneet2001@cluster0.drir7.mongodb.net/TaskDB");
 
 const db=mongoose.connection;
 
