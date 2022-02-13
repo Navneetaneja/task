@@ -6,7 +6,7 @@ const taskSchema=new mongoose.Schema({
         required:true
     },
     task_category:{
-        type:String,
+        type:String
     },
     deadline:{
         type:Date

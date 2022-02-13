@@ -105,7 +105,9 @@ app.post("/userLogin", passport.authenticate('local', { failureRedirect: "/signi
 
 
 app.post('/addTask', function (req, res) {
-    req.body.userid=res.locals.user._id;
+    if(req.isAuthenticated())
+    {
+    req.body.userid=res.locals.user._id;    
     Tasks.create(req.body, function (err, data) {
         if (err) {
             console.log(err);
@@ -114,6 +116,9 @@ app.post('/addTask', function (req, res) {
         console.log(data);
         return res.redirect('back');
     })
+    }
+    else
+    return res.redirect('/signin');
 });
 
 app.get('/deleteTasks', function (req, res) {
