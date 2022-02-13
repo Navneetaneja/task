@@ -13,8 +13,7 @@ const taskSchema=new mongoose.Schema({
     },
     userid:{
         type:Object,
-        required:true,
-        unique:true
+        required:true
     }
 })
 
