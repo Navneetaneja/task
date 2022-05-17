@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect("mongodb+srv://user:navneet2001@cluster0.drir7.mongodb.net/TaskDB");
+mongoose.connect(${{URL}});
 
 const db=mongoose.connection;
 
